@@ -50,5 +50,10 @@ class MongoDataHandler:
             fin_ratios_dict['data'] = fin_ratios_data
             fin_ratios.insert_one(fin_ratios_dict)
 
+    def save_company_profiles(self, ticker, profile_dict):
+        company_profiles = self.db.company_profiles
+        company_profile_dict = {'company': ticker, 'data': profile_dict}
+        company_profiles.insert_one(company_profile_dict)
+
     def close_client(self):
         self.client.close()
