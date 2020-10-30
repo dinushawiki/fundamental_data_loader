@@ -1,6 +1,7 @@
 import logging
 from datetime import datetime
 
+
 import requests
 from tqdm import tqdm
 
@@ -25,7 +26,7 @@ logger = logging.getLogger(__name__)
 api_key = 'de010557d283d47912805d7666fed46e'
 
 
-def load_company_profiles():
+def main():
     logger.info("Company profile loading script started at : {}".format(datetime.now()))
     data_client = MongoDataHandler.MongoDataHandler()
     settings.set_apikey('4b97d96ad599287589126d979919584e')
@@ -51,4 +52,5 @@ def load_company_profiles():
     logger.info("Number of companies loaded: {}".format(num_loaded))
 
 
-load_company_profiles()
+if __name__ == '__main__':
+    main()

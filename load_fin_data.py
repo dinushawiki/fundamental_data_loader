@@ -17,8 +17,8 @@ from datetime import datetime
 period = 'annual'
 
 
-def load_fin_data():
-    print(datetime.now())
+def main():
+    logger.info("Company financial data loading script started at : {}".format(datetime.now()))
     settings.set_apikey('4b97d96ad599287589126d979919584e')
     companies = sts.symbol_list()
     company_list = list(companies['symbol'])
@@ -70,4 +70,4 @@ def fin_ratios_process(id, company_list, time_period):
 
 
 if __name__ == '__main__':
-    load_fin_data()
+    main()

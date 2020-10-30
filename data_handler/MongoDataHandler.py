@@ -55,5 +55,10 @@ class MongoDataHandler:
         company_profile_dict = {'company': ticker, 'data': profile_dict}
         company_profiles.insert_one(company_profile_dict)
 
+    def save_company_descriptions(self, ticker, description_dict):
+        company_descriptions = self.db.company_descriptions
+        company_description_dict = {'company': ticker, 'data': description_dict}
+        company_descriptions.insert_one(company_description_dict)
+
     def close_client(self):
         self.client.close()

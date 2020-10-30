@@ -10,3 +10,4 @@ pyfmpcloud
 fsspec
 pymongo
 urllib3
+yfinance
