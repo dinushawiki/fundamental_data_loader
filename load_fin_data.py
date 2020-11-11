@@ -1,5 +1,6 @@
 import logging
 import multiprocessing
+from datetime import datetime
 
 from pyfmpcloud import settings
 from pyfmpcloud import stock_time_series as sts
@@ -8,18 +9,17 @@ from tqdm import tqdm
 import company_financial_data
 import data_handler.MongoDataHandler as MongoDataHandler
 
-logging.basicConfig(filename='logs/myapp.log', level=logging.INFO,
+logging.basicConfig(filename='logs/financial_data.log', level=logging.INFO,
                     format='%(asctime)s %(levelname)s %(name)s %(message)s')
 logger = logging.getLogger(__name__)
 
-from datetime import datetime
-
 period = 'annual'
+api_key = '4b97d96ad599287589126d979919584e'
 
 
 def main():
     logger.info("Company financial data loading script started at : {}".format(datetime.now()))
-    settings.set_apikey('4b97d96ad599287589126d979919584e')
+    settings.set_apikey(api_key)
     companies = sts.symbol_list()
     company_list = list(companies['symbol'])
     income_process = multiprocessing.Process(target=income_statement_process,
