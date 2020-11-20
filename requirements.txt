@@ -11,3 +11,4 @@ fsspec
 pymongo
 urllib3
 yfinance
+fsspec
