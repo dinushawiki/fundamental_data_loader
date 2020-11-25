@@ -5,7 +5,7 @@ from time import time
 
 import yfinance as yf
 
-import company_list
+import load_company_list
 import data_handler.MongoDataHandler as MongoDataHandler
 
 logging.basicConfig(filename='logs/load_company_descriptions.log', level=logging.INFO,
@@ -17,7 +17,7 @@ def main():
     ts = time()
     logger.info("Company description loading script started at : {}".format(ts))
     data_client = MongoDataHandler.MongoDataHandler()
-    tickers = company_list.get_company_list()
+    tickers = data_client.get_ticker_list()
 
     company_des = partial(get_descriptions, data_client)
     with ThreadPoolExecutor(max_workers=2) as executor:

@@ -1,10 +1,6 @@
 requests
-bs4
 lxml
 pandas
-html5lib
-xlrd
-python-xbrl
 tqdm
 pyfmpcloud
 fsspec

@@ -1,5 +1,6 @@
-from pymongo import MongoClient
 from datetime import datetime
+
+from pymongo import MongoClient
 
 
 class MongoDataHandler:
@@ -62,6 +63,18 @@ class MongoDataHandler:
         company_profiles = self.db.company_profiles
         company_profile_dict = {'company': ticker, 'data': profile_dict}
         company_profiles.insert_one(company_profile_dict)
+
+    def get_ticker_list(self):
+        companies = self.db.companies
+        all_companies = companies.find({})
+        tickers = []
+        for company in all_companies:
+            tickers.append(company['symbol'])
+        return tickers
+
+    def save_company_list(self, company_list):
+        companies = self.db.companies
+        companies.insert_many(company_list)
 
     def save_company_descriptions(self, ticker, description_dict):
         company_descriptions = self.db.company_descriptions

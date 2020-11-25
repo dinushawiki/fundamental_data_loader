@@ -2,10 +2,8 @@ import logging
 from datetime import datetime
 
 import requests
-from pyfmpcloud import settings
-from pyfmpcloud import stock_time_series as sts
 from tqdm import tqdm
-import company_list
+
 import data_handler.MongoDataHandler as MongoDataHandler
 
 logging.basicConfig(filename='logs/load_company_profiles.log', level=logging.INFO,
@@ -18,8 +16,8 @@ url = 'https://fmpcloud.io/api/v3/profile/{}?apikey={}'
 
 def main():
     logger.info("Company profile loading script started at : {}".format(datetime.now()))
-    tickers = company_list.get_company_list()
     data_client = MongoDataHandler.MongoDataHandler()
+    tickers = data_client.get_ticker_list()
     for ticker in tqdm(tickers):
         get_company_profile(ticker, data_client)
     data_client.close_client()
