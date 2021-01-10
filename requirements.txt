@@ -1,10 +1,12 @@
-requests
+requests~=2.22.0
 lxml
-pandas
-tqdm
+pandas~=1.1.0
+tqdm~=4.48.2
 pyfmpcloud
 fsspec
-pymongo
+pymongo~=3.11.1
 urllib3
-yfinance
+yfinance~=0.1.55
 fsspec
+
+python-dateutil~=2.7.3

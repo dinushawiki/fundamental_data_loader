@@ -4,7 +4,6 @@ from datetime import datetime
 from tqdm import tqdm
 
 import company_financial_data
-import load_company_list
 import data_handler.MongoDataHandler as MongoDataHandler
 
 logging.basicConfig(filename='logs/load_balance_sheets.log', level=logging.INFO,
