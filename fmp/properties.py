@@ -1,0 +1,6 @@
+api_key = '4b97d96ad599287589126d979919584e'
+company_list_url = 'https://fmpcloud.io/api/v3/company/stock/list?apikey={}'
+balance_sheet_url = 'https://fmpcloud.io/api/v3/balance-sheet-statement/{}?apikey={}'
+income_statement_url = 'https://fmpcloud.io/api/v3/income-statement/{}?apikey={}'
+cash_flow_url = 'https://fmpcloud.io/api/v3/cash-flow-statement/{}?apikey={}'
+company_profile_url = 'https://fmpcloud.io/api/v3/profile/{}?apikey={}'

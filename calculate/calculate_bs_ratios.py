@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 
 def calculate(data_client):
-    all_balance_sheets = data_client.get_balance_sheets()
+    all_balance_sheets = data_client.get_balance_sheet()
     latest = []
     for ticker_balance_sheets in all_balance_sheets:
         ticker = ticker_balance_sheets['_id']
